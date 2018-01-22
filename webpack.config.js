@@ -4,18 +4,12 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   context: __dirname,
-  entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
-    './js/ClientApp.jsx',
-    './style/App.scss'
-  ],
+  entry: ['./js/ClientApp.jsx', './style/App.scss'],
   devtool: 'cheap-eval-source-map',
   output: {
-    path: path.join(__dirname, 'public'),
+    path: path.join(__dirname),
     filename: 'bundle.js',
-    publicPath: '/public/'
+    publicPath: '/'
   },
   devServer: {
     hot: true,
@@ -31,7 +25,6 @@ module.exports = {
     chunks: true
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new ExtractTextPlugin({
       filename: 'bundle.css',
