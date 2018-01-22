@@ -55,6 +55,12 @@ class Sketch extends Component {
       this.canvas.addEventListener('mousedown', this.mouseDown);
       this.canvas.addEventListener('mouseup', this.mouseUp);
 
+      this.inside = true;
+
+      this.canvas.addEventListener('touchstart', this.mouseDown);
+      this.canvas.addEventListener('touchend', this.mouseUp);
+      this.canvas.addEventListener('touchmove', this.handleCanvasStroke);
+
       this.setupShading();
     }
   };
